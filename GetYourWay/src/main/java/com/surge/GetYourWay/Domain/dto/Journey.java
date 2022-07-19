@@ -1,6 +1,12 @@
 package com.surge.GetYourWay.Domain.dto;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Journey {
+
+    @Id
+    @GeneratedValue
     private int journeyId;
     private int flightId;
     private int tripId;

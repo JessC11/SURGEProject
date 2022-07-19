@@ -1,9 +1,13 @@
 package com.surge.GetYourWay.Domain.dto;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 public class Flight {
 
+    @Id
+    @GeneratedValue
     private int flightId;
 
     private String origin;
