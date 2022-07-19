@@ -1,9 +1,12 @@
 package com.surge.GetYourWay.Domain.dto;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 public class Flight {
 
+    @Id
+    @GeneratedValue
     private int flightId;
 
     private String origin;
@@ -13,6 +16,10 @@ public class Flight {
     private LocalDateTime departTime;
 
     private LocalDateTime arriveTime;
+
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+//    @JoinColumn(name="flight")
+//    private Journey journey;
 
     public Flight() {
     }

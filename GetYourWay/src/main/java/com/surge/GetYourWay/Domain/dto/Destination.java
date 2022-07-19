@@ -1,11 +1,15 @@
 package com.surge.GetYourWay.Domain.dto;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Destination {
+
+    @Id
+    @GeneratedValue
     private int destinationId;
     private String destination;
     private String programme;
-
-
 
     public int getDestinationId() {
         return destinationId;

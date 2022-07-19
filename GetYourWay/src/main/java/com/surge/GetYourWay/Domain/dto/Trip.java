@@ -1,9 +1,17 @@
 package com.surge.GetYourWay.Domain.dto;
 
+import javax.persistence.*;
+
 public class Trip {
 
+    @Id
+    @GeneratedValue
     private int tripId;
     private int customerId;
+
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+//    @JoinColumn(name="trip")
+//    private Journey journey;
 
     public int getTripId() {
         return tripId;
