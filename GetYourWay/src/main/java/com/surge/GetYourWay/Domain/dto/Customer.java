@@ -1,4 +1,4 @@
-package com.surge.GetYourWay.classes;
+package com.surge.GetYourWay.Domain.dto;
 
 public class Customer {
 
