@@ -1,4 +1,4 @@
-package com.surge.GetYourWay;
+package com.surge.GetYourWay.Domain.dto;
 
 public class Trip {
 

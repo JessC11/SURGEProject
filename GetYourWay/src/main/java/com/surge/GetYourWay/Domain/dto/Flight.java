@@ -1,4 +1,6 @@
-package com.surge.GetYourWay.classes;
+package com.surge.GetYourWay.Domain.dto;
+
+import java.time.LocalDateTime;
 
 public class Flight {
 
