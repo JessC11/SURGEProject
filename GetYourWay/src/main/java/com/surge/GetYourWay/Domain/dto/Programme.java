@@ -3,6 +3,7 @@ package com.surge.GetYourWay.Domain.dto;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.List;
 
 @Entity
 public class Programme {
@@ -11,6 +12,9 @@ public class Programme {
     @GeneratedValue
     private int programmeId;
     private String programme;
+
+//    @OneToMany(mappedBy = "programme", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<Destination> destinations;
 
     public Programme() {
 

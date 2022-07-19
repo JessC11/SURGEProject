@@ -2,6 +2,8 @@ package com.surge.GetYourWay.Domain.dto;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 public class Destination {
 
@@ -12,6 +14,14 @@ public class Destination {
     private int programmeId;
     private String info;
     private int imageId;
+
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+//    @JoinColumn(name = "programmeId")
+//    private Programme programme
+
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+//    JoinColumn(name = "imageId)
+//    private Image image;
 
     public Destination() {
 

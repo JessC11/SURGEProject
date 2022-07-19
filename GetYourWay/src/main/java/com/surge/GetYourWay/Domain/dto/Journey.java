@@ -12,9 +12,8 @@ public class Journey {
     private int tripId;
 
 //    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-//    @JoinColumn(name="customer")
+//    @JoinColumn(name="customerId")
 //    private Customer customer;
-
 
 //    @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    private List<Flight> flights;
