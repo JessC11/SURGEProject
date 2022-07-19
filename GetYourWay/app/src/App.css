@@ -1,0 +1,42 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.inputContainer {
+  display: grid;
+  place-items: center;
+  margin-top: 15vh;
+}
+
+.programmeInput {
+  height: 50px;
+  width: 600px;
+  font-size: 26px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.imgContainer {
+  display: grid;
+}
+
+/* .progCard {
+  transition: transform 0.2s;
+  /* border-radius: 10px; */
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  z-index: 100;
+}
+
+/* .progCard:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+} */
