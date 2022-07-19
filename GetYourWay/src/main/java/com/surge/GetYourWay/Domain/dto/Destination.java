@@ -9,7 +9,13 @@ public class Destination {
     @GeneratedValue
     private int destinationId;
     private String destination;
-    private String programme;
+    private int programmeId;
+    private String info;
+    private int imageId;
+
+    public Destination() {
+
+    }
 
     public int getDestinationId() {
         return destinationId;
@@ -27,12 +33,28 @@ public class Destination {
         this.destination = destination;
     }
 
-    public String getProgramme() {
-        return programme;
+    public int getProgrammeId() {
+        return programmeId;
     }
 
-    public void setProgramme(String programme) {
-        this.programme = programme;
+    public void setProgrammeId(int programmeId) {
+        this.programmeId = programmeId;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
     }
 }
 
