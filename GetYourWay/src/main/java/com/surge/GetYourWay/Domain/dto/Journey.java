@@ -1,7 +1,7 @@
 package com.surge.GetYourWay.Domain.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 public class Journey {
 
@@ -10,6 +10,17 @@ public class Journey {
     private int journeyId;
     private int flightId;
     private int tripId;
+
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+//    @JoinColumn(name="customer")
+//    private Customer customer;
+
+
+//    @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<Flight> flights;
+
+//    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<Trip> trips;
 
 
     public int getJourneyId() {

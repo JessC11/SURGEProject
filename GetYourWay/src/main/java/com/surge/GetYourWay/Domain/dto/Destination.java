@@ -11,8 +11,6 @@ public class Destination {
     private String destination;
     private String programme;
 
-
-
     public int getDestinationId() {
         return destinationId;
     }

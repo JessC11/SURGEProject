@@ -1,8 +1,7 @@
 package com.surge.GetYourWay.Domain.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -14,6 +13,9 @@ public class Customer {
     private String passwordHash;
     private String firstName;
     private String lastName;
+
+//    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    private List<Journey> journey;
 
     public Customer() {
 
