@@ -1,8 +1,6 @@
 package com.surge.GetYourWay.Domain.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -13,8 +11,13 @@ public class Programme {
     private int programmeId;
     private String programme;
 
-//    @OneToMany(mappedBy = "programme", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<Destination> destinations;
+    @OneToMany(mappedBy = "programme", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Destination> destinations;
+
+    @OneToOne
+    @JoinColumn(name="imageId")
+    private Image image;
+
 
     public Programme() {
 

@@ -1,27 +1,22 @@
 package com.surge.GetYourWay.Domain.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
+@Entity
 public class Destination {
 
     @Id
     @GeneratedValue
     private int destinationId;
     private String destination;
-    private int programmeId;
     private String info;
-    private int imageId;
 
-//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-//    @JoinColumn(name = "programmeId")
-//    private Programme programme
+    @OneToOne(mappedBy = "destination")
+    private Flight flight;
 
-//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-//    JoinColumn(name = "imageId)
-//    private Image image;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "programmeId")
+    private Programme programme;
 
     public Destination() {
 
@@ -43,28 +38,12 @@ public class Destination {
         this.destination = destination;
     }
 
-    public int getProgrammeId() {
-        return programmeId;
-    }
-
-    public void setProgrammeId(int programmeId) {
-        this.programmeId = programmeId;
-    }
-
     public String getInfo() {
         return info;
     }
 
     public void setInfo(String info) {
         this.info = info;
-    }
-
-    public int getImageId() {
-        return imageId;
-    }
-
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
     }
 }
 

@@ -1,17 +1,21 @@
 package com.surge.GetYourWay.Domain.dto;
 
 import javax.persistence.*;
+import java.util.List;
 
+@Entity
 public class Trip {
 
     @Id
     @GeneratedValue
     private int tripId;
-    private int customerId;
 
-//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-//    @JoinColumn(name="tripId")
-//    private Journey journey;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @JoinColumn(name="customerId")
+    private Customer customer;
+
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Journey> journey;
 
     public int getTripId() {
         return tripId;
@@ -21,11 +25,4 @@ public class Trip {
         this.tripId = tripId;
     }
 
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
 }
