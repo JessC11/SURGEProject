@@ -34,3 +34,4 @@ build/
 
 /.DS_Store
 /app/node_modules
+/.idea

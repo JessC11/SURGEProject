@@ -1,4 +1,4 @@
-package com.surge.GetYourWay.Domain.dto;
+package com.surge.GetYourWay.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
