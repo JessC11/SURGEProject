@@ -11,42 +11,42 @@ const Searching = () => {
         {
             src: "https://assets-prd.ignimgs.com/2022/01/14/gameofthrones-allseasons-sq-1642120207458.jpg",
             alt: "game of thrones: split",
-            linkTo: "/discover?city=Split"
+            linkTo: "/destination?city=Split"
         },
         {
             src: "https://assets-prd.ignimgs.com/2022/01/14/gameofthrones-allseasons-sq-1642120207458.jpg",
             alt: "game of thrones: dubrovnik",
-            linkTo: "/discover?city=Dubrovnik"
+            linkTo: "/destination?city=Dubrovnik"
         },
         {
             src: "https://flxt.tmsimg.com/assets/p8282918_b_v13_bk.jpg",
             alt: "the walking dead: atlanta",
-            linkTo: "/discover?city=Atlanta"
+            linkTo: "/destination?city=Atlanta"
         },
         {
             src: "https://m.media-amazon.com/images/I/91NNuqAp73L._AC_SL1500_.jpg",
             alt: "stranger things: vilnus",
-            linkTo: "/discover?city=Vilnus"
+            linkTo: "/destination?city=Vilnus"
         },
         {
             src: "https://flxt.tmsimg.com/assets/p185846_b_h9_ad.jpg",
             alt: "breaking bad: new mexico",
-            linkTo: "/discover?city=NewMexico"
+            linkTo: "/destination?city=NewMexico"
         },
         {
             src: "https://flxt.tmsimg.com/assets/p20492218_b_h9_aa.jpg",
             alt: "squid game: daejon",
-            linkTo: "/discover?city=Daejon"
+            linkTo: "/destination?city=Daejon"
         },
         {
             src: "https://m.media-amazon.com/images/M/MV5BOTdlNzdlZWQtZTU5MS00N2RkLWJjYTAtYzY5NWEwMmMyZDM1XkEyXkFqcGdeQXVyNDk3ODk4OQ@@._V1_.jpg",
             alt: "ted lasso: london",
-            linkTo: "/discover?city=London"
+            linkTo: "/destination?city=London"
         },
         {
             src: "https://image.tmdb.org/t/p/original//reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
             alt: "money heist: madrid",
-            linkTo: "/discover?city=Madrid"
+            linkTo: "/destination?city=Madrid"
         }
     ])
 
