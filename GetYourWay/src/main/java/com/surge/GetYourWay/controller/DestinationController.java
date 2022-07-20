@@ -1,4 +1,4 @@
-package com.surge.GetYourWay.Controller;
+package com.surge.GetYourWay.controller;
 
 import com.surge.GetYourWay.Domain.dto.Weather;
 import com.surge.GetYourWay.Service.DestinationService;

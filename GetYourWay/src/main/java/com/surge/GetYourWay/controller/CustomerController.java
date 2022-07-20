@@ -1,4 +1,4 @@
-package com.surge.GetYourWay.Controller;
+package com.surge.GetYourWay.controller;
 import com.surge.GetYourWay.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

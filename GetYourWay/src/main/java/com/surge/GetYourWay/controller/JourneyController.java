@@ -1,12 +1,12 @@
-package com.surge.GetYourWay.Controller;
+package com.surge.GetYourWay.controller;
 
-import com.surge.GetYourWay.Service.ImageService;
+import com.surge.GetYourWay.Service.JourneyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ImageController {
+public class JourneyController {
 
     @Autowired
-    ImageService imageService;
+    JourneyService journeyService;
 }
