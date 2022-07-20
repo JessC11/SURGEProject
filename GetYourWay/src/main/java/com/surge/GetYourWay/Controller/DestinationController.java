@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class DestinationController {
 
@@ -19,6 +21,11 @@ public class DestinationController {
     @GetMapping("/weather")
     public Weather getWeather() {
         return weatherService.getWeatherInfo("Split");
+    }
+
+    @GetMapping("/forecast")
+    public List<Weather> getWeatherFuture() {
+        return weatherService.getWeatherForecastByDays("Split", 4);
     }
 
 }

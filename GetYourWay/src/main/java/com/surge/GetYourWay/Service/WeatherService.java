@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.json.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class WeatherService {
 
@@ -23,6 +26,29 @@ public class WeatherService {
 
         System.out.println(weather);
         return weather;
+    }
+
+    public List<Weather> getWeatherForecastByDays(String city, int days) {
+        ArrayList<Weather> forecast = new ArrayList<>();
+        final String uri = "http://api.weatherapi.com/v1/forecast.json?key=9948850abc994c449c9152057221007&q=" + city + "&days=" + days + "&aqi=no&alerts=no;";
+
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(uri, String.class);
+
+        JSONArray objArray = new JSONObject(result).getJSONObject("forecast").getJSONArray("forecastday");
+
+        for (int i = 0; i < objArray.length(); i++) {
+            JSONObject obj = objArray.getJSONObject(i).getJSONObject("day");
+
+            Weather weather = new Weather();
+            weather.setTempC(obj.getDouble("avgtemp_c"));
+            weather.setWindMph(obj.getDouble("maxwind_mph"));
+            weather.setHumidity((int)obj.getInt("avghumidity"));
+            weather.setFeelsLikeC(obj.getDouble("avgtemp_c"));
+            forecast.add(weather);
+        }
+
+        return forecast;
     }
 
 }
