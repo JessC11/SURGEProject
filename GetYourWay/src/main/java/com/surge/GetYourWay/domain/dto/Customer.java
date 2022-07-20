@@ -13,8 +13,8 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-//    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<Journey> journey;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Trip> trip;
 
     public Customer() {
 
