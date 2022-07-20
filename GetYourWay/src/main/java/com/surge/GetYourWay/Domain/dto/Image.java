@@ -1,9 +1,9 @@
 package com.surge.GetYourWay.Domain.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
+@Entity
 public class Image {
 
     @Id
@@ -11,8 +11,8 @@ public class Image {
     private int imageId;
     private String image;
 
-//    @OneToMany(mappedBy = "image", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private List<Destination> destinations;
+    @OneToOne(mappedBy = "image", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Programme programme;
 
     public Image() {
 
