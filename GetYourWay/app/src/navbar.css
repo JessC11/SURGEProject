@@ -1,0 +1,23 @@
+header {
+    background-color: #EFEFEF;
+    border-bottom: 3px solid #219EBC;
+}
+
+
+.navbar {
+    background-color: #EFEFEF ;
+    color: #023047;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+}
+
+#nav-logo {
+    height: 125px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nav-item, .nav-link {
+    font-size: 25px;
+}

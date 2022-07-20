@@ -1,3 +1,7 @@
+.App{
+  width: 100%;
+}
+
 .container {
   height: 100%;
   width: 100%;
@@ -6,7 +10,7 @@
 .inputContainer {
   display: grid;
   place-items: center;
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
 
 .programmeInput {
