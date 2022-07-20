@@ -1,0 +1,53 @@
+body, html {
+    height: 100%;
+}
+
+body #bodydiv {
+    background-image: url("homepageimg.jpeg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 90%;
+
+}
+header {
+    background-color: #EFEFEF;
+    border-bottom: 3px solid #219EBC;
+}
+
+.nav {
+    background-color: #EFEFEF ;
+    color: #023047;
+}
+
+#nav-logo {
+    height: 125px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nav-item, .nav-link {
+    font-size: 25px;
+}
+
+
+
+
+#form-container {
+    padding: 30px;
+
+}
+
+#login-container, #registration-container {
+    background-color: rgba(239,239,239,0.8);
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    padding: 30px;
+    margin: 10px;
+    color: #FB8500;
+    font-weight: bold;
+} 
+
