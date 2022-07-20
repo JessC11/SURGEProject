@@ -1,18 +1,27 @@
-package com.surge.GetYourWay.Domain.dto;
+package com.surge.GetYourWay.domain.dto;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
 public class Flight {
 
+    @Id
+    @GeneratedValue
     private int flightId;
 
     private String origin;
 
-    private String destinationId;
-
     private LocalDateTime departTime;
 
     private LocalDateTime arriveTime;
+
+    @OneToOne(mappedBy = "flight", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Journey journey;
+
+    @OneToOne
+    @JoinColumn(name = "destinationId")
+    private Destination destination;
 
     public Flight() {
     }
@@ -23,10 +32,6 @@ public class Flight {
 
     public String getOrigin() {
         return origin;
-    }
-
-    public String getDestinationId() {
-        return destinationId;
     }
 
     public LocalDateTime getDepartTime() {
@@ -43,10 +48,6 @@ public class Flight {
 
     public void setOrigin(String origin) {
         this.origin = origin;
-    }
-
-    public void setDestinationId(String destinationId) {
-        this.destinationId = destinationId;
     }
 
     public void setDepartTime(LocalDateTime departTime) {

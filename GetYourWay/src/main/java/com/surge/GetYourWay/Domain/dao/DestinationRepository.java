@@ -1,7 +1,12 @@
-package com.surge.GetYourWay.Domain.dao;
+package com.surge.GetYourWay.domain.dao;
 
-import org.springframework.stereotype.Repository;
+import com.surge.GetYourWay.domain.dto.Destination;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
-@Repository
-public interface DestinationRepository {
+@Service
+public interface DestinationRepository extends JpaRepository<Destination, Integer> {
+
+
+
 }
