@@ -1,6 +1,6 @@
-package com.surge.GetYourWay.Service;
+package com.surge.GetYourWay.service;
 
-import com.surge.GetYourWay.Domain.dto.Weather;
+import com.surge.GetYourWay.domain.dto.Weather;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.json.*;
