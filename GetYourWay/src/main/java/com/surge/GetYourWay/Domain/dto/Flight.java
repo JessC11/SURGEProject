@@ -18,7 +18,7 @@ public class Flight {
     private LocalDateTime arriveTime;
 
 //    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-//    @JoinColumn(name="flight")
+//    @JoinColumn(name="flightId")
 //    private Journey journey;
 
     public Flight() {

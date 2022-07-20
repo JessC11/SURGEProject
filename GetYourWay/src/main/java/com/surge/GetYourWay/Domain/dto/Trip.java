@@ -10,7 +10,7 @@ public class Trip {
     private int customerId;
 
 //    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-//    @JoinColumn(name="trip")
+//    @JoinColumn(name="tripId")
 //    private Journey journey;
 
     public int getTripId() {
