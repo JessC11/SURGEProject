@@ -1,5 +1,7 @@
-package com.surge.GetYourWay.Domain.dto;
+package com.surge.GetYourWay.domain.dto;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.*;
 import java.util.List;
 

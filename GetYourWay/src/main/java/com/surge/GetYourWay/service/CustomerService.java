@@ -1,6 +1,6 @@
-package com.surge.GetYourWay.Service;
+package com.surge.GetYourWay.service;
 
-import com.surge.GetYourWay.Domain.dao.CustomerRepository;
+import com.surge.GetYourWay.domain.dao.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

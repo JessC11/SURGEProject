@@ -1,7 +1,6 @@
-package com.surge.GetYourWay.Domain.dto;
+package com.surge.GetYourWay.domain.dto;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Customer {
