@@ -10,9 +10,9 @@ public class Journey {
     @GeneratedValue
     private int journeyId;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-    @JoinColumn(name="customerId")
-    private Customer customer;
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+//    @JoinColumn(name="customerId")
+//    private Customer customer;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name="flightId")
@@ -30,4 +30,7 @@ public class Journey {
         this.journeyId = journeyId;
     }
 
+    public Flight getFlight() {
+        return flight;
+    }
 }

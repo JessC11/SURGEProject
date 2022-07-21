@@ -19,7 +19,7 @@ public class Flight {
     @OneToOne(mappedBy = "flight", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Journey journey;
 
-    @OneToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "destinationId")
     private Destination destination;
 
@@ -56,5 +56,9 @@ public class Flight {
 
     public void setArriveTime(LocalDateTime arriveTime) {
         this.arriveTime = arriveTime;
+    }
+
+    public Destination getDestination() {
+        return destination;
     }
 }
