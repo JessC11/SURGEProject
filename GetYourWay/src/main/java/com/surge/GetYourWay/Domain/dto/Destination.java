@@ -1,6 +1,9 @@
 package com.surge.GetYourWay.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Destination {
@@ -11,8 +14,8 @@ public class Destination {
     private String destination;
     private String info;
 
-    @OneToOne(mappedBy = "destination")
-    private Flight flight;
+    @OneToMany(mappedBy = "destination")
+    private List<Flight> flight;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "programmeId")
@@ -44,5 +47,9 @@ public class Destination {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public Programme getProgramme() {
+        return programme;
     }
 }

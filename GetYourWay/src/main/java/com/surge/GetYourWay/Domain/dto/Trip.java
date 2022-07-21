@@ -24,4 +24,15 @@ public class Trip {
         this.tripId = tripId;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<Journey> getJourney() {
+        return journey;
+    }
 }

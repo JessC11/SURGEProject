@@ -1,5 +1,7 @@
 package com.surge.GetYourWay.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -37,5 +39,9 @@ public class Programme {
 
     public void setProgramme(String programme) {
         this.programme = programme;
+    }
+
+    public Image getImage() {
+        return image;
     }
 }
