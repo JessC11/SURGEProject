@@ -24,6 +24,7 @@ const Flights = () => {
           .then(response => response.json())
           .then(result=>{
               setFlights(result)
+              console.log(result)
           })
     }, [])
 
