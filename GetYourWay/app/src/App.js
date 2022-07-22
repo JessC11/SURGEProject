@@ -4,27 +4,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navibar from './components/Navbar';
 import Searching from './pages/Searching';
 import backgr from './img/homepageimg.jpeg';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Searching from './views/Searching';
-import Destination from './views/Destination';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Destination from './pages/Destination';
 
-const App = () => {
+function App() {
   return (
+  <BrowserRouter> 
+
+<Navibar />
+
     <div className="App">
-      <header>
-      <Navibar/>
-      </header>
-      <body>
-      <Searching/>
-      </body>
-        <Router>
             <Routes>
               <Route path = "/destination" element={<Destination/>}/>
               <Route path = "/search" exact element={<Searching/>}/>
             </Routes>
-         </Router>
     </div>
+
+  </BrowserRouter>
   );
 }
-
 export default App;
