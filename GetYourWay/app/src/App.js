@@ -7,7 +7,9 @@ import backgr from './img/homepageimg.jpeg';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Destination from './pages/Destination';
 import Flights from './pages/Flights';
+import Homepage from './pages/homepage';
 import Journey from './pages/Journey';
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
 
     <div className="App">
             <Routes>
+              <Route path="/home" element={<Homepage/>}/>
               <Route path = "/journey" element = {<Journey/>}/>
               <Route path = "/flights" element = {<Flights/>}/>
               <Route path = "/destination" element={<Destination/>}/>
