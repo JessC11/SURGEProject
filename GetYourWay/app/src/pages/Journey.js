@@ -27,7 +27,7 @@ const Journey = () => {
     }, [])
 
     return (
-        <div>
+        <div className="journeyContainer">
             {data.map((journey, index) => {
                 let d = new Date(journey.flight.departTime);
                 let depTime = d.toString().slice(0, 33);
