@@ -45,6 +45,7 @@ public class WeatherService {
             weather.setWindMph(obj.getDouble("maxwind_mph"));
             weather.setHumidity((int)obj.getInt("avghumidity"));
             weather.setFeelsLikeC(obj.getDouble("avgtemp_c"));
+            weather.setConditionCode(obj.getJSONObject("condition").getInt("code"));
             forecast.add(weather);
         }
 
