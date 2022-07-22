@@ -56,7 +56,7 @@
 }
 
 .flight {
-   width: 75%;
+   width: 80%;
    height: 150px;
    margin-left: 40px;
    background-color: #C1C1C1;
@@ -66,8 +66,15 @@
    justify-content: center;
 }
 
+.departContainer, arriveContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+}
+
 .departTime {
-   font-size: 40px;
+   font-size: 20px;
    margin-left: 10px;
    padding-right: 2vw;
 }
@@ -83,8 +90,21 @@
 }
 
 .arrivalTime {
-   font-size: 40px;
+   font-size: 20px;
    }
+
+.departImg, .arriveImg {
+    height: 75px;
+    width: 75px;
+}
+
+.departImg {
+    padding-right: 20px;
+}
+
+.arriveImg {
+    padding-right: 20px;
+}
 
 #sun-gradient {
    --color-stop: rgba(236, 184, 0, 0.9);

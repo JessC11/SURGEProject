@@ -29,8 +29,9 @@ const Flights = () => {
 
     return (
         <div>
-            {flights.map((elem) => {
-                return <FlightItem flight={elem}/>
+            {flights.map((flight) => {
+                return <FlightItem departure={flight.departure} departTime={flight.departTime}
+                            arrival={flight.arrival} arrivalTime={flight.arrivalTime}/>
             })}
         </div>
     )
