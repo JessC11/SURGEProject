@@ -1,0 +1,90 @@
+.app {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    background-color: #f8f9fd;
+  }
+  
+  .reg-form input[type="text"],
+  .reg-form input[type="password"] {
+    height: 25px;
+    padding:10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  }
+
+  .reg-form input[type="text"]:hover,
+  .reg-form input[type="password"]:hover {
+    height: 25px;
+    padding:10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.3);
+  }
+  .reg-form input[type="text"]:focus,
+  .reg-form input[type="password"]:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #8ECAE6;
+  }
+  
+  .reg-form input[type="submit"] {
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background: #FB8500;
+    border: 2px solid #FB8500;
+    border-radius: 4px;
+    color: #fff;
+    padding: 10px 20px;
+  }
+  
+  .reg-form input[type="submit"]:hover {
+    background: #FFB703;
+    font-weight: bold;
+    border-width: 2px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .reg-form {
+    background-color: rgba(239,239,239,0.8);
+    padding: 2rem;
+  }
+  
+  .list-container {
+    display: flex;
+  }
+  
+  .error {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .reg-title {
+    font-size: 25px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #FB8500;
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+  }
+
+  .success-message {
+    text-align: center;
+    color: #FB8500;
+  }
