@@ -32,10 +32,9 @@ const Destination = () => {
     }, [])
 
     return (
-        <div>
-            {city}
+        <div className="weatherContainer">
             {weather.map((elem, index) => {
-                return <WeatherItem data={elem} key={index}/>
+                return <WeatherItem data={elem} index={index} key={index}/>
             })}
         </div>
     )
