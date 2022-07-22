@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import { useSearchParams } from 'react-router-dom';
+import WeatherItem from '../components/WeatherItem';
 
 const Destination = () => {
 //    const [data, setData] = useState('');
@@ -33,6 +34,9 @@ const Destination = () => {
     return (
         <div>
             {city}
+            {weather.map((elem, index) => {
+                return <WeatherItem data={elem} key={index}/>
+            })}
         </div>
     )
 }
