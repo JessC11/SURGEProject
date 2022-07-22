@@ -5,6 +5,7 @@ const Destination = () => {
 //    const [data, setData] = useState('');
     const [city, setCity] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
+    const [weather, setWeather] = useState([]);
 
     // on page load, get query param
     useEffect(() => {
@@ -12,16 +13,21 @@ const Destination = () => {
         setCity(param);
         console.log(param)
 
-        // const requestOptions = {
-        //     method: 'GET',
-        //     headers: { 'Content-Type': 'application/json' }
-        // };
-        // fetch('http://localhost:8080' + data.linkTo, requestOptions)
-        // .then(response => response.json())
-        // .then(result=>{
-        //     setData(result)
-        //     console.log(result)
-        // })
+        const requestOptions = {
+             method: 'GET',
+             headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': '*'
+              }
+          };
+          let address = 'http://localhost:8080/forecast/' + param;
+          fetch(address , requestOptions)
+          .then(response => response.json())
+          .then(result=>{
+              setWeather(result)
+              console.log(result)
+          })
     }, [])
 
     return (
