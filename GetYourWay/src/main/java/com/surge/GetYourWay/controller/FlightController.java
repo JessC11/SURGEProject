@@ -24,10 +24,10 @@ public class FlightController {
     @Autowired
     FlightApiService flightApiService;
 
-    @GetMapping("/flights")
-    public List<FlightInfo> getFlights() {
+    @GetMapping("/flights/{depart}/{arrive}")
+    public List<FlightInfo> getFlights(@PathVariable String depart, @PathVariable String arrive) {
         System.out.println("here");
-        return flightApiService.getFlights("MAN","PSA");
+        return flightApiService.getFlights(depart,arrive);
     }
 
     @GetMapping("/flight/{id}")

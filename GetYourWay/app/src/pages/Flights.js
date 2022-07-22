@@ -1,12 +1,16 @@
 import {useState, useEffect} from 'react';
 import FlightItem from '../components/FlightItem';
 import Navbar from '../components/Navbar';
+import { useSearchParams } from 'react-router-dom';
 
 const Flights = () => {
 
     const [flights, setFlights] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
+        let depart = searchParams.get("depart");
+        let arrive = searchParams.get("arrive");
           const requestOptions = {
              method: 'GET',
              headers: {
@@ -15,8 +19,8 @@ const Flights = () => {
                 'Access-Control-Allow-Headers': '*'
               }
           };
-
-          fetch('http://localhost:8080/flights' , requestOptions)
+          let address = 'http://localhost:8080/flights/' + depart + '/' + arrive;
+          fetch(address , requestOptions)
           .then(response => response.json())
           .then(result=>{
               setFlights(result)
