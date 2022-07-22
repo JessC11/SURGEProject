@@ -1,18 +1,19 @@
 import '../App.css';
+import departLogo from '../img/departures.png';
+import arriveLogo from '../img/landing.png';
 
-const FlightItem = ({flight}) => {
+const FlightItem = ({departure, departTime, arrival, arrivalTime}) => {
 
     return (
-        <div className="flightContainer">
-             <div className="flight">
-                <p className="departTime">{flight.departTime.slice(0, flight.departTime.length - 3)}</p>
-                <p className="departure">{flight.departure}</p>
-                <p className="arrival">{flight.arrival}</p>
-                <p className="arrivalTime">{flight.arrivalTime.slice(0, flight.arrivalTime.length - 3)}</p>
-            </div>
-
-            <div className="addFlight">
-
+        <div>
+            <div className="flightContainer">
+                <p className="departTime">{departTime}</p>
+                <img className="departImg" src={departLogo}/>
+                <p className="departure">{departure}</p>
+                <p className="symbol">></p>
+                <p className="arrive">{arrival}</p>
+                <img className="arriveImg" src={arriveLogo}/>
+                <p className="arriveTime">{arrivalTime}</p>
             </div>
         </div>
     )
