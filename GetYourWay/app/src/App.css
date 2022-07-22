@@ -53,14 +53,14 @@
 }
 
 .flightContainer {
-    width: 1250px;
+    width: 1600px;
     border-radius: 25px;
     background-color: #FBAB7E;
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
     display: grid;
     height: 150px;
     /*grid-template-columns: 22vw 7vw 8vw 2vw 8vw 7vw 22vw;*/
-    grid-template-columns: 400px 100px 100px 30px 100px 100px 400px;
+    grid-template-columns: 450px 100px 130px 30px 130px 100px 450px;
     grid-template-area: "depTime" "depImg" "dep" "symbol" "arr" "arrImg" "arrTime";
     justify-content: center;
     align-items: center;
@@ -104,6 +104,13 @@
     font-size: 24px;
 }
 
+@media only screen and (max-width: 1600px) {
+    .flightContainer {
+        width: 1250px;
+        grid-template-columns: 350px 100px 130px 30px 130px 100px 350px;
+    }
+}
+
 @media only screen and (max-width: 1500px) {
     .arrive, .arriveTime, .departure, .departTime {
         font-size: 20px;
@@ -115,7 +122,7 @@
 
 @media only screen and (max-width: 1300px) {
     .flightContainer {
-        grid-template-columns: 200px 100px 100px 30px 100px 100px 200px;
+        grid-template-columns: 200px 100px 120px 30px 120px 100px 200px;
         width: 1000px;
     }
 }
