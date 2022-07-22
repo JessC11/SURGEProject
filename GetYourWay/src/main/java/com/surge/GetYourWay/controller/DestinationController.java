@@ -5,13 +5,14 @@ import com.surge.GetYourWay.domain.dto.Weather;
 import com.surge.GetYourWay.service.DestinationService;
 import com.surge.GetYourWay.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
+@CrossOrigin
 @RestController
 public class DestinationController {
 
@@ -21,14 +22,14 @@ public class DestinationController {
     @Autowired
     WeatherService weatherService;
 
-    @GetMapping("/weather")
-    public Weather getWeather() {
-        return weatherService.getWeatherInfo("Split");
+    @GetMapping("/weather/{city}")
+    public Weather getWeather(@PathVariable String city) {
+        return weatherService.getWeatherInfo(city);
     }
 
-    @GetMapping("/forecast")
-    public List<Weather> getWeatherFuture() {
-        return weatherService.getWeatherForecastByDays("Split", 4);
+    @GetMapping("/forecast/{city}")
+    public List<Weather> getWeatherFuture(@PathVariable String city) {
+        return weatherService.getWeatherForecastByDays(city, 4);
     }
 
     @GetMapping("/destination")
