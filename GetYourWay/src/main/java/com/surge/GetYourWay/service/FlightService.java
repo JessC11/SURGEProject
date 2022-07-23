@@ -14,4 +14,8 @@ public class FlightService {
     public Flight getFlightById(int id) {
         return flightRepository.findById(id).get();
     }
+
+    public Flight createFlight(Flight flight) {
+        return flightRepository.save(flight);
+    }
 }
