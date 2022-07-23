@@ -46,12 +46,170 @@
  cursor: pointer;
  transform: scale(1.2);
 } */
-.journeyContainer {
-    display:flex;
+
+.sharingContainer {
+    margin-top: 4vh;
+}
+
+.facebookImg, .instagramImg, .twitterImg {
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+}
+
+.facebookImg:hover, .instagramImg:hover, .twitterImg:hover {
+    cursor: pointer;
+}
+
+.weatherContainer {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-area: "w0" "w1" "w2";
+    grid-gap: 10px;
+    margin-top: 10px;
     justify-content: center;
+}
+
+.weather-0, .weather-1, .weather-2 {
+    background-image: linear-gradient(45deg, #9bf8f4, #6f7bf7);
+    border-radius: 30px;
+    height: 250px;
+    width: 200px;
+    display: grid;
+    justify-content: center;
+}
+
+.weather-0 {
+    grid-area: "w0";
+}
+
+.weather-1 {
+    grid-area: "w1";
+}
+
+.weather-2 {
+    grid-area: "w2";
+}
+
+.sun, .cloudy, .rainy {
+    height: 100px;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 5px;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.info {
+    margin-top: 20px;
+    grid-column: 1;
+    grid-row: 2;
+    font-family: Lato;
+    font-weight: 400;
+}
+
+@media only screen and (max-width: 700px) {
+    .weatherContainer {
+        grid-template-columns: 200px 200px;
+        grid-template-rows: 250px 250px;
+        grid-template-area: "w1 w2"
+                            "w3";
+    }
 
 }
 
+.journeyContainer {
+    display: grid;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.flightListContainer {
+    display: grid;
+    grid-template-columns: 1000px 100px;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    grid-gap: 10px;
+}
+
+.flightContainer {
+    width: 1000px;
+    border: 1px solid black;
+    height: 150px;
+    display: grid;
+    grid-template-columns: 200px 150px 50px 150px 200px;
+    grid-template-area: "depTime dep img arr arrTime";
+    grid-template-rows: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.departTime {
+    grid-area: "depTime";
+}
+
+.departure {
+    grid-area: "dep";
+}
+
+.arrive {
+    grid-area: "arr";
+}
+
+.arriveTime {
+    grid-area: "arrTime";
+}
+
+.departImg {
+    height: 50px;
+    width: 50px;
+    grid-area: "img";
+}
+
+.departTime, .departure, .arrive, .arriveTime, .departImg {
+    display: grid;
+    justify-content: center;
+}
+
+.addText {
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
+@media only screen and (max-width: 1200px) {
+    .flightListContainer {
+        grid-template-columns: 700px 100px;
+    }
+    .flightContainer {
+        width: 700px;
+        grid-template-columns: 150px 150px 50px 150px 150px;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .flightListContainer {
+        grid-template-columns: 500px 50px;
+    }
+    .addText {
+        height: 50px;
+        width: 50px;
+    }
+    .flightContainer {
+        width: 500px;
+        grid-template-columns:  130px 100px 30px 100px 130px;
+    }
+    .departImg {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+
+/*
 .flightContainer {
     width: 1600px;
     border-radius: 25px;
@@ -59,7 +217,6 @@
     background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
     display: grid;
     height: 150px;
-    /*grid-template-columns: 22vw 7vw 8vw 2vw 8vw 7vw 22vw;*/
     grid-template-columns: 450px 100px 130px 30px 130px 100px 450px;
     grid-template-area: "depTime" "depImg" "dep" "symbol" "arr" "arrImg" "arrTime";
     justify-content: center;
@@ -157,85 +314,4 @@
         font-size: 18px;
     }
 }
-
-.sharingContainer {
-    margin-top: 4vh;
-}
-
-.facebookImg, .instagramImg, .twitterImg {
-    height: 100px;
-    width: 100px;
-    padding: 10px;
-}
-
-.facebookImg:hover, .instagramImg:hover, .twitterImg:hover {
-    cursor: pointer;
-}
-
-/*.weatherContainer {
-    height: 250px;
-    width: 200px;
-    background-image: linear-gradient(45deg, #9bf8f4, #6f7bf7);
-    border-radius: 30px;
-
-    display: grid;
-    grid-template-columns: 250px;
-    grid-template-rows: 180px 20px;
-}*/
-
-.weatherContainer {
-    display: grid;
-    grid-template-columns: 200px 200px 200px;
-    grid-template-area: "w0" "w1" "w2";
-    grid-gap: 10px;
-    margin-top: 10px;
-    justify-content: center;
-}
-
-.weather-0, .weather-1, .weather-2 {
-    background-image: linear-gradient(45deg, #9bf8f4, #6f7bf7);
-    border-radius: 30px;
-    height: 250px;
-    width: 200px;
-    display: grid;
-    justify-content: center;
-}
-
-.weather-0 {
-    grid-area: "w0";
-}
-
-.weather-1 {
-    grid-area: "w1";
-}
-
-.weather-2 {
-    grid-area: "w2";
-}
-
-.sun, .cloudy, .rainy {
-    height: 100px;
-    width: 100px;
-    margin-top: 10px;
-    margin-left: 5px;
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.info {
-    margin-top: 20px;
-    grid-column: 1;
-    grid-row: 2;
-    font-family: Lato;
-    font-weight: 400;
-}
-
-@media only screen and (max-width: 700px) {
-    .weatherContainer {
-        grid-template-columns: 200px 200px;
-        grid-template-rows: 250px 250px;
-        grid-template-area: "w1 w2"
-                            "w3";
-    }
-
-}
+*/

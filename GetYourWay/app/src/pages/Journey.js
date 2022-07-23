@@ -43,15 +43,17 @@ const Journey = () => {
                     d = new Date(journey.flight.arriveTime);
                     let arrTime = d.toString().slice(0, 33);
                     return <FlightItem departure={journey.flight.origin} departTime={depTime}
-                                arrival={journey.flight.destination.destination} arrivalTime={arrTime} key={index}/>
+                                arrival={journey.flight.destination.destination} arrivalTime={arrTime} key={index}
+                                index={index+1} isBooking={false}/>
                 })}
+                <div className="sharingContainer">
+                    <h3>Share Your Surge Travel Plans</h3>
+                       <img className="facebookImg" src = {facebookLogo} onClick={() => openURL('https://facebook.com')}/>
+                       <img className="instagramImg" src = {instagramLogo} onClick={() => openURL('https://instagram.com')}/>
+                       <img className="twitterImg" src = {twitterLogo} onClick={() => openURL('https://twitter.com')}/>
+                </div>
             </div>
-            <div className="sharingContainer">
-                <h3>Share Your Surge Travel Plans</h3>
-                   <img className="facebookImg" src = {facebookLogo} onClick={() => openURL('https://facebook.com')}/>
-                   <img className="instagramImg" src = {instagramLogo} onClick={() => openURL('https://instagram.com')}/>
-                   <img className="twitterImg" src = {twitterLogo} onClick={() => openURL('https://twitter.com')}/>
-            </div>
+
         </div>
     )
 

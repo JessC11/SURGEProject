@@ -29,10 +29,11 @@ const Flights = () => {
     }, [])
 
     return (
-        <div>
-            {flights.map((flight) => {
+        <div className="flightListContainer">
+            {flights.map((flight, index) => {
                 return <FlightItem departure={flight.departure} departTime={flight.departTime}
-                            arrival={flight.arrival} arrivalTime={flight.arrivalTime}/>
+                            arrival={flight.arrival} arrivalTime={flight.arrivalTime} index={index+1}
+                            isBooking={true}/>
             })}
         </div>
     )

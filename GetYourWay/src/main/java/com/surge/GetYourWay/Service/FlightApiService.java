@@ -23,6 +23,8 @@ public class FlightApiService {
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject(uri, String.class);
 
+        System.out.println(result);
+
         JSONArray objArray = new JSONArray(result);
 
         for (int i = 0; i < objArray.length(); i++) {
