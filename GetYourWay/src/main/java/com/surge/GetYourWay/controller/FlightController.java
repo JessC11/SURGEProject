@@ -5,12 +5,8 @@ import com.surge.GetYourWay.domain.dto.FlightInfo;
 import com.surge.GetYourWay.service.FlightApiService;
 import com.surge.GetYourWay.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -34,4 +30,14 @@ public class FlightController {
     public Flight getFlight(@PathVariable int id){
         return flightService.getFlightById(id);
     }
+
+    @PostMapping("/flight")
+    public HttpStatus createFlight(@RequestBody Flight flight){
+        Flight newFlight = flightService.createFlight(flight);
+        if(newFlight != null) {
+            return HttpStatus.CREATED;
+        }
+        return HttpStatus.BAD_REQUEST;
+    }
 }
+
