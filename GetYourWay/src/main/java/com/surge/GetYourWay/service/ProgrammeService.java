@@ -33,7 +33,6 @@ public class ProgrammeService {
         newProgramme.setProgramme("example");
 
         // If they provide a new image then create this using the imageRepository.createImage(image) method
-
         // .... Emma defined this code
 
         // If they provide an image ID then do this;
