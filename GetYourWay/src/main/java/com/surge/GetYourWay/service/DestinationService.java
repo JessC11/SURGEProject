@@ -2,6 +2,7 @@ package com.surge.GetYourWay.service;
 
 import com.surge.GetYourWay.domain.dao.DestinationRepository;
 import com.surge.GetYourWay.domain.dto.Destination;
+import com.surge.GetYourWay.domain.dto.Image;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,9 @@ public class DestinationService {
 
     public Destination getDestinationById(int id) {
         return destinationRepository.findById(id).get();
+    }
+
+    public Destination createDestination(Destination destination) {
+        return destinationRepository.save(destination);
     }
 }
