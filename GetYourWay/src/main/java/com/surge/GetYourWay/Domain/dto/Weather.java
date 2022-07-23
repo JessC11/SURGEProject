@@ -1,7 +1,9 @@
 package com.surge.GetYourWay.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.ToString;
 
+@ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Weather {
 
@@ -9,6 +11,8 @@ public class Weather {
     private double windMph;
     private int humidity;
     private double feelsLikeC;
+
+    private int conditionCode;
 
     public Weather() {
 
@@ -46,9 +50,13 @@ public class Weather {
         return this.feelsLikeC;
     }
 
-    @Override
-    public String toString() {
-        return "Value{tempC="+tempC+", windMPH="+windMph+", humidity="+humidity+", feelsLikeC="+feelsLikeC+"}";
+
+    public int getConditionCode() {
+        return conditionCode;
+    }
+
+    public void setConditionCode(int conditionCode) {
+        this.conditionCode = conditionCode;
     }
 
 }
