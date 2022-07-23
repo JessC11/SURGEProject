@@ -3,6 +3,7 @@ import ProgrammeCard from '../components/ProgrammeCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useMediaQuery} from 'react-responsive';
 import ProgrammeCardList from '../components/ProgrammeCardList'
+import Trips from '../components/Trips'
 
 const Searching = () => {
 
