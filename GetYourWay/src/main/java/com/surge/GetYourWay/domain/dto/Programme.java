@@ -48,4 +48,8 @@ public class Programme {
     public void setImage(Image image) {
         this.image = image;
     }
+
+    public void setDestinations(List<Destination> destinations) {
+        this.destinations = destinations;
+    }
 }
