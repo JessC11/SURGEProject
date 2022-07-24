@@ -1,63 +1,76 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
+import { faPlaneDeparture, faPlaneArrival } from '@fortawesome/free-solid-svg-icons';
+import {useEffect, useState} from 'react';
 
-const Trip = ({text}) => {
+const Trip = ({data, index}) => {
+
+    const flightRows = data.list.map((elem, index) =>
+        <FlightRow key={index} data={elem}/>
+    );
+
     return (
     <div>
     <br />
         <div className="card">
           <div className="card-body">
-            <TripName text={text}/>
-            <FlightRow />
-            <FlightRow />
+            <TripName name={data.list[0].destination}/>
+            {flightRows}
           </div>
         </div>
     </div>
     )
 }
 
-function FlightTime() {
+function FlightTime({flightTime}) {
 return (
     <div className="col-md-3">
-        <h4 class="text-center">05/08/22 10:25</h4>
+        <h4 className="text-center">{flightTime}</h4>
     </div>
     )
 }
 
-function AirportDetails() {
+function AirportDetails({data}) {
 return (
-        <div className="col-md-2">
-            <h4 class="text-center">DBV > MAN</h4>
+        <div className="col-md-8">
+            <h4 className="text-center">{data.origin} > {data.destination}</h4>
         </div>
     )
 }
 
-function PlaneIcon(){
+function PlaneIcon({isDeparting}){
+
+const icon = isDeparting ? faPlaneDeparture : faPlaneArrival ;
+
 return(
         <div className="col-md-2">
             <div className="text-center">
-                <h4><FontAwesomeIcon icon={faPlaneDeparture} /></h4>
+                <h4><FontAwesomeIcon icon={icon} /></h4>
             </div>
         </div>
 )
 }
 
-function FlightRow(){
+const FlightRow = ({data, index}) =>{
+
 return(
     <div className="row pt-3">
-        <FlightTime />
-        <PlaneIcon />
-        <AirportDetails />
-        <PlaneIcon />
-        <FlightTime />
+        <FlightTime flightTime={data.departTime}/>
+        <div className = "col">
+            <div className="row">
+                <PlaneIcon isDeparting={true}/>
+                <AirportDetails data={data}/>
+                <PlaneIcon isDeparting={false}/>
+            </div>
+        </div>
+        <FlightTime flightTime={data.arriveTime}/>
     </div>
 )}
 
-function TripName({text}){
+function TripName({name}){
 return(
     <div className="row">
         <div className="col">
-            <h1 class="text-center p-3">{text} 05/08/22 - 12/08/22</h1>
+            <h1 className="text-center p-3">{name} Trip 05/08/22 - 12/08/22</h1>
         </div>
     </div>
 )}

@@ -19,7 +19,7 @@ public class TripViewModelRepository {
     JdbcTemplate jdbcTemplate;
 
     public List<TripViewModel> getAllTrips(int customerId){
-        return jdbcTemplate.query(  "select flight.origin, flight.depart_time, flight.arrive_time, destination.destination, programme.programme from trip\n" +
+        return jdbcTemplate.query(  "select flight.origin, flight.depart_time, flight.arrive_time, destination.destination, programme.programme, trip.trip_id from trip\n" +
                                         "join journey on trip.trip_id = journey.trip_id\n" +
                                         "join flight on journey.flight_id = flight.flight_id\n" +
                                         "join destination on flight.destination_id = destination.destination_id\n" +
@@ -32,11 +32,11 @@ public class TripViewModelRepository {
         public TripViewModel mapRow(ResultSet resultSet, int rowNum) throws SQLException {
             TripViewModel tripViewModel = new TripViewModel();
             tripViewModel.setDestination(resultSet.getString("destination"));
-            System.out.println(resultSet.getString("depart_time"));
             tripViewModel.setDepartTime(resultSet.getDate("depart_time"));
-//            tripViewModel.setArriveTime(Date);
+            tripViewModel.setArriveTime(resultSet.getDate("arrive_time"));
             tripViewModel.setOrigin(resultSet.getString("origin"));
             tripViewModel.setProgramme(resultSet.getString("programme"));
+            tripViewModel.setTripId(resultSet.getInt("trip_id"));
             return tripViewModel;
         }
     }

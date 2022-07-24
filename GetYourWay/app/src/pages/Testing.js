@@ -1,14 +1,77 @@
 import {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Trips from '../components/Trips'
+import Trip from '../components/Trip'
 
 const Testing = () => {
 
+    const [trips, setTrips] = useState([]);
+
+    useEffect(() => {
+          const requestOptions = {
+             method: 'GET',
+             headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': '*'
+              }
+          };
+          let address = 'http://localhost:8080/trips/1';
+          fetch(address , requestOptions)
+          .then(response => response.json())
+          .then(result=>{
+              setTrips(result);
+              console.log(result[0])
+          })
+    }, [])
+
+    const tripsObj = [
+                         {
+                             flights: [
+                                {
+                                     origin: "Manchester",
+                                     departTime: "2022-08-23 13:45:00",
+                                     arriveTime: "2022-08-23 15:50:00",
+                                     destination: "Dubrovnik"
+                                },
+                                {
+                                     origin: "Dubrovnik",
+                                     departTime: "2022-08-30 06:15:00",
+                                     arriveTime: "2022-08-30 08:25:00",
+                                     destination: "Manchester"
+                                }
+                             ]
+                         },
+                         {
+                             flights: [
+                                {
+                                     origin: "Leeds",
+                                     departTime: "2022-09-01 13:45:00",
+                                     arriveTime: "2022-09-01 13:45:00",
+                                     destination: "Vilnius"
+                                },
+                                {
+                                     origin: "Vilnius",
+                                     departTime: "2022-09-04 22:35:00",
+                                     arriveTime: "2022-09-05 01:15:00",
+                                     destination: "Paris"
+                                },
+                                {
+                                     origin: "Paris",
+                                     departTime: "2022-09-10 12:00:00",
+                                     arriveTime: "2022-09-10 13:00:00",
+                                     destination: "Leeds"
+                                }
+                             ]
+                         }
+                     ]
+
+    const tripsObject = trips.map((elem, index) =>
+        <Trip key={index} data={elem} />
+    );
+
     return (
         <div className="container">
-
-            <Trips />
-
+            {tripsObject}
         </div>
     )
 

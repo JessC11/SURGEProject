@@ -12,6 +12,7 @@ public class TripViewModel {
     private Date arriveTime;
     private String destination;
     private String programme;
+    private int tripId;
 
     public TripViewModel() {
     }
@@ -36,6 +37,10 @@ public class TripViewModel {
         return programme;
     }
 
+    public int getTripId() {
+        return tripId;
+    }
+
     public void setOrigin(String origin) {
         this.origin = origin;
     }
@@ -54,5 +59,9 @@ public class TripViewModel {
 
     public void setProgramme(String programme) {
         this.programme = programme;
+    }
+
+    public void setTripId(int tripId) {
+        this.tripId = tripId;
     }
 }
