@@ -46,117 +46,6 @@
  cursor: pointer;
  transform: scale(1.2);
 } */
-.journeyContainer {
-    display:flex;
-    justify-content: center;
-
-}
-
-.flightContainer {
-    width: 1600px;
-    border-radius: 25px;
-    background-color: #FBAB7E;
-    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-    display: grid;
-    height: 150px;
-    /*grid-template-columns: 22vw 7vw 8vw 2vw 8vw 7vw 22vw;*/
-    grid-template-columns: 450px 100px 130px 30px 130px 100px 450px;
-    grid-template-area: "depTime" "depImg" "dep" "symbol" "arr" "arrImg" "arrTime";
-    justify-content: center;
-    align-items: center;
-    margin-top: 2vh;
-}
-
-.departTime {
-    grid-area: "depTime";
-}
-
-.departImg {
-    grid-area: "depImg";
-    height: 75px;
-    width: 75px;
-}
-
-.departure {
-    grid-area: "dep";
-}
-
-.symbol {
-    grid-area: "symbol";
-    font-size: 30px;
-}
-
-.arriveTime {
-    grid-area: "arrTime";
-}
-
-.arriveImg {
-    grid-area: "arrImg";
-    height: 75px;
-    width: 75px;
-}
-
-.arrive {
-    grid-area: "arr";
-}
-
-.arrive, .arriveTime, .departure, .departTime {
-    font-size: 24px;
-}
-
-@media only screen and (max-width: 1600px) {
-    .flightContainer {
-        width: 1250px;
-        grid-template-columns: 350px 100px 130px 30px 130px 100px 350px;
-    }
-}
-
-@media only screen and (max-width: 1500px) {
-    .arrive, .arriveTime, .departure, .departTime {
-        font-size: 20px;
-    }
-    .symbol {
-        font-size: 26px;
-    }
-}
-
-@media only screen and (max-width: 1300px) {
-    .flightContainer {
-        grid-template-columns: 200px 100px 120px 30px 120px 100px 200px;
-        width: 1000px;
-    }
-}
-
-@media only screen and (max-width: 1050px) {
-    .arriveImg, .departImg {
-        display: none;
-    }
-    .flightContainer {
-        grid-template-columns: 200px 100px 30px 100px 200px;
-        grid-template-area: "depTime" "dep" "symbol" "arr" "arrTime";
-        width: 700px
-    }
-    .arrive, .arriveTime, .departure, .departTime {
-        font-size: 17px;
-    }
-}
-
-@media only screen and (max-width: 650px) {
-    .arriveImg, .departImg {
-        display: none;
-    }
-    .flightContainer {
-        grid-template-columns: 150px 80px 20px 80px 150px;
-        grid-template-area: "depTime" "dep" "symbol" "arr" "arrTime";
-        width: 500px
-    }
-    .arrive, .arriveTime, .departure, .departTime {
-        font-size: 15px;
-    }
-    .symbol {
-        font-size: 18px;
-    }
-}
 
 .sharingContainer {
     margin-top: 4vh;
@@ -171,17 +60,6 @@
 .facebookImg:hover, .instagramImg:hover, .twitterImg:hover {
     cursor: pointer;
 }
-
-/*.weatherContainer {
-    height: 250px;
-    width: 200px;
-    background-image: linear-gradient(45deg, #9bf8f4, #6f7bf7);
-    border-radius: 30px;
-
-    display: grid;
-    grid-template-columns: 250px;
-    grid-template-rows: 180px 20px;
-}*/
 
 .weatherContainer {
     display: grid;
@@ -238,4 +116,99 @@
                             "w3";
     }
 
+}
+
+.journeyContainer {
+    display: grid;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.flightListContainer {
+    display: grid;
+    grid-template-columns: 1000px 100px;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    grid-gap: 10px;
+}
+
+.flightContainer {
+    width: 1000px;
+    border: 1px solid black;
+    height: 150px;
+    display: grid;
+    grid-template-columns: 200px 150px 50px 150px 200px;
+    grid-template-area: "depTime dep img arr arrTime";
+    grid-template-rows: 1;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.departTime {
+    grid-area: "depTime";
+}
+
+.departure {
+    grid-area: "dep";
+}
+
+.arrive {
+    grid-area: "arr";
+}
+
+.arriveTime {
+    grid-area: "arrTime";
+}
+
+.departImg {
+    height: 50px;
+    width: 50px;
+    grid-area: "img";
+}
+
+.departTime, .departure, .arrive, .arriveTime, .departImg {
+    display: grid;
+    justify-content: center;
+}
+
+.addText {
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+}
+
+@media only screen and (max-width: 1200px) {
+    .flightListContainer {
+        grid-template-columns: 700px 100px;
+    }
+    .flightContainer {
+        width: 700px;
+        grid-template-columns: 150px 150px 50px 150px 150px;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    .flightListContainer {
+        grid-template-columns: 500px 50px;
+    }
+    .addText {
+        height: 50px;
+        width: 50px;
+    }
+    .flightContainer {
+        width: 500px;
+        grid-template-columns:  130px 100px 30px 100px 130px;
+    }
+    .departImg {
+        height: 30px;
+        width: 30px;
+    }
+}
+
+.emailInput {
+    width: 300px;
 }
