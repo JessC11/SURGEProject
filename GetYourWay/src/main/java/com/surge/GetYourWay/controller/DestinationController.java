@@ -1,14 +1,14 @@
 package com.surge.GetYourWay.controller;
 
 import com.surge.GetYourWay.domain.dto.Destination;
+import com.surge.GetYourWay.domain.dto.Programme;
 import com.surge.GetYourWay.domain.dto.Weather;
 import com.surge.GetYourWay.service.DestinationService;
+import com.surge.GetYourWay.service.ProgrammeService;
 import com.surge.GetYourWay.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,6 +21,9 @@ public class DestinationController {
 
     @Autowired
     WeatherService weatherService;
+
+    @Autowired
+    ProgrammeService programmeService;
 
     @GetMapping("/weather/{city}")
     public Weather getWeather(@PathVariable String city) {
@@ -41,4 +44,14 @@ public class DestinationController {
     public Destination getDestination(@PathVariable int id){
         return destinationService.getDestinationById(id);
     }
+
+    @PostMapping("/destination/{programmeId}")
+    public HttpStatus createDestination(@RequestBody Destination destination, @PathVariable int programmeId) {
+        Destination newDestination = destinationService.createDestination(destination, programmeId);
+        if(newDestination != null) {
+            return HttpStatus.CREATED;
+        }
+        return HttpStatus.BAD_REQUEST;
+    }
+
 }
