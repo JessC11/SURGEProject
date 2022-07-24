@@ -33,24 +33,27 @@ const Journey = () => {
         window.open(url, '_blank', 'noopener,noreferrer');
     }
 
+    function onSend() {
+
+    }
+
     return (
         <div>
             <div className="journeyContainer">
                 {data.map((journey, index) => {
-                    let d = new Date(journey.flight.departTime);
-                    let depTime = d.toString().slice(0, 33);
-                    console.log(depTime)
-                    d = new Date(journey.flight.arriveTime);
-                    let arrTime = d.toString().slice(0, 33);
-                    return <FlightItem departure={journey.flight.origin} departTime={depTime}
-                                arrival={journey.flight.destination.destination} arrivalTime={arrTime} key={index}
-                                index={index+1} isBooking={false}/>
+                    return <FlightItem departure={journey.flight.origin} departTime={journey.flight.departTime}
+                                arrival={journey.flight.destination.destination} arrivalTime={journey.flight.arriveTime}
+                                key={index} index={index+1} isBooking={false}/>
                 })}
                 <div className="sharingContainer">
                     <h3>Share Your Surge Travel Plans</h3>
-                       <img className="facebookImg" src = {facebookLogo} onClick={() => openURL('https://facebook.com')}/>
-                       <img className="instagramImg" src = {instagramLogo} onClick={() => openURL('https://instagram.com')}/>
-                       <img className="twitterImg" src = {twitterLogo} onClick={() => openURL('https://twitter.com')}/>
+                   <img className="facebookImg" src = {facebookLogo} onClick={() => openURL('https://facebook.com')}/>
+                   <img className="instagramImg" src = {instagramLogo} onClick={() => openURL('https://instagram.com')}/>
+                   <img className="twitterImg" src = {twitterLogo} onClick={() => openURL('https://twitter.com')}/>
+                   <div className="emailContainer">
+                        <input className="emailInput" type="input" placeholder="Email your friends..."/>
+                        <input type="submit" value="Send" onClick={onSend}/>
+                   </div>
                 </div>
             </div>
 

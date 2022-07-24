@@ -144,6 +144,7 @@
     grid-template-rows: 1;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
 }
 
 .departTime {
@@ -208,110 +209,6 @@
     }
 }
 
-
-/*
-.flightContainer {
-    width: 1600px;
-    border-radius: 25px;
-    background-color: #FBAB7E;
-    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
-    display: grid;
-    height: 150px;
-    grid-template-columns: 450px 100px 130px 30px 130px 100px 450px;
-    grid-template-area: "depTime" "depImg" "dep" "symbol" "arr" "arrImg" "arrTime";
-    justify-content: center;
-    align-items: center;
-    margin-top: 2vh;
+.emailInput {
+    width: 300px;
 }
-
-.departTime {
-    grid-area: "depTime";
-}
-
-.departImg {
-    grid-area: "depImg";
-    height: 75px;
-    width: 75px;
-}
-
-.departure {
-    grid-area: "dep";
-}
-
-.symbol {
-    grid-area: "symbol";
-    font-size: 30px;
-}
-
-.arriveTime {
-    grid-area: "arrTime";
-}
-
-.arriveImg {
-    grid-area: "arrImg";
-    height: 75px;
-    width: 75px;
-}
-
-.arrive {
-    grid-area: "arr";
-}
-
-.arrive, .arriveTime, .departure, .departTime {
-    font-size: 24px;
-}
-
-@media only screen and (max-width: 1600px) {
-    .flightContainer {
-        width: 1250px;
-        grid-template-columns: 350px 100px 130px 30px 130px 100px 350px;
-    }
-}
-
-@media only screen and (max-width: 1500px) {
-    .arrive, .arriveTime, .departure, .departTime {
-        font-size: 20px;
-    }
-    .symbol {
-        font-size: 26px;
-    }
-}
-
-@media only screen and (max-width: 1300px) {
-    .flightContainer {
-        grid-template-columns: 200px 100px 120px 30px 120px 100px 200px;
-        width: 1000px;
-    }
-}
-
-@media only screen and (max-width: 1050px) {
-    .arriveImg, .departImg {
-        display: none;
-    }
-    .flightContainer {
-        grid-template-columns: 200px 100px 30px 100px 200px;
-        grid-template-area: "depTime" "dep" "symbol" "arr" "arrTime";
-        width: 700px
-    }
-    .arrive, .arriveTime, .departure, .departTime {
-        font-size: 17px;
-    }
-}
-
-@media only screen and (max-width: 650px) {
-    .arriveImg, .departImg {
-        display: none;
-    }
-    .flightContainer {
-        grid-template-columns: 150px 80px 20px 80px 150px;
-        grid-template-area: "depTime" "dep" "symbol" "arr" "arrTime";
-        width: 500px
-    }
-    .arrive, .arriveTime, .departure, .departTime {
-        font-size: 15px;
-    }
-    .symbol {
-        font-size: 18px;
-    }
-}
-*/

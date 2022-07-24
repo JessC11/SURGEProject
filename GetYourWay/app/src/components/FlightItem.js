@@ -6,6 +6,7 @@ const FlightItem = ({departure, departTime, arrival, arrivalTime, index, isBooki
 
     // TODO: need times in DateTime, need persistent user info
     function onAdd() {
+
         let id = 1;
         const flight = {
             origin: departure,
@@ -30,14 +31,19 @@ const FlightItem = ({departure, departTime, arrival, arrivalTime, index, isBooki
         })
     }
 
+    let d = new Date(departTime);
+    let depTime = d.toString().slice(0, 33);
+    d = new Date(arrivalTime);
+    let arrTime = d.toString().slice(0, 33);
+
     return (
         <>
             <div className="flightContainer" style={{gridColumn: '1', gridRow: index}}>
-                <p className="departTime">{departTime}</p>
+                <p className="departTime">{depTime}</p>
                 <p className="departure">{departure}</p>
                 <img src={departLogo} className="departImg"/>
                 <p className="arrive">{arrival}</p>
-                <p className="arriveTime">{arrivalTime}</p>
+                <p className="arriveTime">{arrTime}</p>
             </div>
             {isBooking && <div onClick={onAdd} style={{gridColumn: '2', gridRow: index, height: '75px', width: '75px', display: 'grid', alignItems: 'center'}}>
                 <p className="addText">Add Me to Your Journey</p>
