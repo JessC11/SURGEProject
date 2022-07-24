@@ -1,12 +1,10 @@
 package com.surge.GetYourWay.controller;
 
 import com.surge.GetYourWay.domain.dto.Destination;
+import com.surge.GetYourWay.domain.dto.NewDestination;
 import com.surge.GetYourWay.domain.dto.Programme;
 import com.surge.GetYourWay.domain.dto.Weather;
-import com.surge.GetYourWay.service.DestinationService;
-import com.surge.GetYourWay.service.ImageService;
-import com.surge.GetYourWay.service.ProgrammeService;
-import com.surge.GetYourWay.service.WeatherService;
+import com.surge.GetYourWay.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +17,9 @@ public class DestinationController {
 
     @Autowired
     DestinationService destinationService;
+
+    @Autowired
+    NewDestinationService NewDestinationService;
 
     @Autowired
     WeatherService weatherService;
@@ -40,19 +41,19 @@ public class DestinationController {
     }
 
     @GetMapping("/destination")
-    public List<Destination> getDestinations(){
+    public List<Destination> getDestinations() {
         return destinationService.getAllDestinations();
     }
 
     @GetMapping("/destination/{id}")
-    public Destination getDestination(@PathVariable int id){
+    public Destination getDestination(@PathVariable int id) {
         return destinationService.getDestinationById(id);
     }
 
-    @PostMapping("/createdestination")
-    public HttpStatus createDestination(@RequestBody Destination destination){
-        Destination newDestination = destinationService.createDestination(destination);
-        if(newDestination != null) {
+    @PostMapping("/newdestination")
+    public HttpStatus createDestination(@RequestBody NewDestination destination) {
+        Destination newDestination = NewDestinationService.createDestination(destination);
+        if (newDestination != null) {
             return HttpStatus.CREATED;
         }
         return HttpStatus.BAD_REQUEST;

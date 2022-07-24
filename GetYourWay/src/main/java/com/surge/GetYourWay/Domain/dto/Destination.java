@@ -1,7 +1,5 @@
 package com.surge.GetYourWay.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -52,4 +50,7 @@ public class Destination {
     public Programme getProgramme() {
         return programme;
     }
+
+    public void setProgramme(Programme programme) {
+        this.programme = programme;}
 }

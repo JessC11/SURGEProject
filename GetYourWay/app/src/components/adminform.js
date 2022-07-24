@@ -1,31 +1,52 @@
 import React, { useEffect, useState } from "react";
-import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
 import "../adminform.css";
 
 const AdminForm = () => {
 
     const [destination, setDestination] = useState('');
     const [info, setInfo] = useState('');
-    const [programme_id, setProgrammeId] = useState("Game of Thrones")
+    const [programmes, setProgrammes] = useState('[]');
+    let [programmeId, setProgrammeId] = useState('');
+
+    useEffect(() => {
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': '*'
+              }
+          };
+         let getaddress = 'http://localhost:8080/programmes/';
+         fetch(getaddress , requestOptions)
+         .then(response => response.json())
+         .then(result=>{
+             setProgrammes(result)
+             console.log(result)
+         })
+   }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newDestination = {destination, info, programme_id}
+        const newDestination = {destination, info, programmeId}
+        console.log(newDestination);
         let address = 'http://localhost:8080/newdestination'
         fetch(address, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(newDestination)
+            body: JSON.stringify(newDestination, programmeId)
         }) .then(() => {
             console.log("New destination added");
         })
-
-
     }
 
+    let handleProgrammeChange = (e) => {
+        setProgrammeId(parseInt(e.target.value))
+      }
+
     return (
-        <div>
             <div className="adminForm">
+                <h2>Add New Destination</h2>
             <form onSubmit={handleSubmit}>
                 <label>Destination</label>
                 <input
@@ -40,21 +61,15 @@ const AdminForm = () => {
                 value={info}
                 onChange={(e) => setInfo(e.target.value)}
                 />
-                <label>Programme_id</label>
-                <select
-                value={programme_id}
-                onChange={(e) => setProgrammeId(e.target.value)}
-                >
-                    <option value="Game of Thrones">Game of Thrones</option>
-                    <option value="Spiderman">Spiderman</option>
+                <label>Programme</label>
+                <select onChange={handleProgrammeChange}> 
+                <option value="Select a programme"> -- Select a programme -- </option>
+                {Array.from(programmes).map((programmes) => 
+                <option key={programmes.programmeId} value={programmes.programmeId}>{programmes.programme}</option>)}
                 </select>
                 <button>Add new Destination</button>
-                <p>{ destination }</p>
-                <p>{ info }</p>
-                <p>{ programme_id }</p>
             </form>
             </div>
-        </div>
     );
 }
 
