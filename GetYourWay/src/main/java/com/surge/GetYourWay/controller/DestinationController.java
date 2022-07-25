@@ -2,9 +2,13 @@ package com.surge.GetYourWay.controller;
 
 import com.surge.GetYourWay.domain.dto.Destination;
 import com.surge.GetYourWay.domain.dto.NewDestination;
-import com.surge.GetYourWay.domain.dto.Programme;
 import com.surge.GetYourWay.domain.dto.Weather;
 import com.surge.GetYourWay.service.*;
+
+import com.surge.GetYourWay.service.DestinationService;
+import com.surge.GetYourWay.service.ProgrammeService;
+import com.surge.GetYourWay.service.WeatherService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

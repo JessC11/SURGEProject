@@ -20,10 +20,9 @@ public class FlightController {
     @Autowired
     FlightApiService flightApiService;
 
-    @GetMapping("/flights/{depart}/{arrive}")
-    public List<FlightInfo> getFlights(@PathVariable String depart, @PathVariable String arrive) {
-        System.out.println("here");
-        return flightApiService.getFlights(depart,arrive);
+    @GetMapping("/flights/{depart}/{arrive}/{date}")
+    public List<FlightInfo> getFlights(@PathVariable String depart, @PathVariable String arrive, @PathVariable String date) {
+        return flightApiService.getFlights(depart, arrive, date);
     }
 
     @GetMapping("/flight/{id}")

@@ -3,29 +3,48 @@ import ReactDOM from "react-dom";
 
 import "../form.css";
 
-function RegistrationForm() {
+const RegistrationForm = () => {
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [email, setEmail] = useState('');
+  const [passwordHash, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   const errors = {
     submitError: "Please fill out all fields",
-    passError: "Passwords do not match"
+    passwordError: "Passwords do not match"
   };
 
   const handleSubmit = (event) => {
-
     event.preventDefault();
 
-    var { fname, lname, email, pass, confpass } = document.forms[0];
+    const newCustomer = {email, passwordHash, firstName, lastName }
+    console.log(newCustomer)
+    let address = 'http://localhost:8080/registration';
+    const request = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*'
+      },
+        body: JSON.stringify(newCustomer)
+    }
+    fetch(address , request)
+    .then(result=>{
+        setIsSubmitted(result)
+        console.log(result)
+    })
+  }
 
-    //need to send user info to database
-
-  
-      if (pass !== confpass) {
-        // Invalid password
-        setErrorMessages({ name: "passerror", message: errors.passError });
+function checkpassword() {
+    if (checkpassword.value){
+      if (passwordHash.value !== checkpassword.value) {
+        setErrorMessages({ name: "passworderror", message: errors.passwordError });
       }
     }
+  }
 
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
@@ -39,24 +58,28 @@ function RegistrationForm() {
       <div className="name-container">
       <div className="input-container">
           <label>First Name</label>
-          <input type="text" name="fname" required placeholder="Enter your first name" />
+          <input type="text" name="firstName" required placeholder="Enter your first name" 
+            value={firstName} onChange={event=>setFirstName(event.target.value)}/>
         </div>
         <div className="input-container">
           <label>Last Name</label>
-          <input type="text" name="lname" required placeholder="Enter your last name" />
+          <input type="text" name="lastName" required placeholder="Enter your last name" 
+          value={lastName} onChange={event=>setLastName(event.target.value)}/>
         </div>
         </div>
         <div className="input-container">
           <label>Email </label>
-          <input type="text" name="email" required placeholder="Enter email" />
+          <input type="text" name="email" required placeholder="Enter email" 
+          value={email} onChange={event=>setEmail(event.target.value)}/>
         </div>
         <div className="input-container">
           <label>Password </label>
-          <input type="password" name="pass" required placeholder="Password" />
+          <input type="password" name="password" required placeholder="Password" 
+          value={passwordHash} onChange={event=>setPassword(event.target.value)}/>
         </div>
         <div className="input-container">
           <label>Confirm Password </label>
-          <input type="password" name="confpass" required placeholder="Confirm password" />
+          <input type="password" name="confpass" required placeholder="Confirm password" onClick={checkpassword(passwordHash)}/>
         </div>
         {renderErrorMessage("passerror")}
         <div className="button-container">
@@ -66,12 +89,21 @@ function RegistrationForm() {
     </div>
   );
 
+    const renderSuccessfulSignup =(
+
+    <div className="register-success-message">
+      <p>Sign up successful! New user created. </p>
+      <p>You can now sign in</p>
+    </div>
+    
+    );
+
   return (
 
       <div className="reg-form">
         <div className="info">Not already a member?</div>
         <div className="reg-title">Register</div>
-        {isSubmitted ? <div className="success-message">Sign up successful! \n New user created. \n You can now sign in.</div> : renderForm}
+        {isSubmitted ? renderSuccessfulSignup : renderForm}
       </div>
     
   );
