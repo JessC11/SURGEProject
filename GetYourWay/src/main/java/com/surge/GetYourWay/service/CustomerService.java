@@ -35,4 +35,19 @@ public class CustomerService {
         };
         return customer;
     }
+
+    public void createCustomer(Customer newCustomer) {
+        customerRepository.save(newCustomer);
+    }
+
+
+    public Customer checkExists(Customer customerInput){
+        Optional<Customer> cust = customerRepository.findByEmail(customerInput.getEmail());
+        if (cust.isEmpty()) {
+            return null;
+        }
+        return cust.get();
+    }
+
+
 }
