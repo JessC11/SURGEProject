@@ -11,6 +11,7 @@ const Flights = () => {
     useEffect(() => {
         let depart = searchParams.get("depart");
         let arrive = searchParams.get("arrive");
+        let date = searchParams.get("date");
           const requestOptions = {
              method: 'GET',
              headers: {
@@ -19,7 +20,7 @@ const Flights = () => {
                 'Access-Control-Allow-Headers': '*'
               }
           };
-          let address = 'http://localhost:8080/flights/' + depart + '/' + arrive;
+          let address = 'http://localhost:8080/flights/' + depart + '/' + arrive + '/' + date;
           fetch(address , requestOptions)
           .then(response => response.json())
           .then(result=>{
@@ -29,10 +30,11 @@ const Flights = () => {
     }, [])
 
     return (
-        <div>
-            {flights.map((flight) => {
+        <div className="flightListContainer">
+            {flights.map((flight, index) => {
                 return <FlightItem departure={flight.departure} departTime={flight.departTime}
-                            arrival={flight.arrival} arrivalTime={flight.arrivalTime}/>
+                            arrival={flight.arrival} arrivalTime={flight.arrivalTime} index={index+1}
+                            isBooking={true}/>
             })}
         </div>
     )

@@ -19,7 +19,7 @@ public class Flight {
     @OneToOne(mappedBy = "flight", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Journey journey;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "destinationId")
     private Destination destination;
 
