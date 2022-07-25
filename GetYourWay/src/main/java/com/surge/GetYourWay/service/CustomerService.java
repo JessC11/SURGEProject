@@ -1,14 +1,18 @@
 package com.surge.GetYourWay.service;
 
 import com.surge.GetYourWay.domain.dao.CustomerRepository;
+import com.surge.GetYourWay.domain.dto.AuthCustomer;
 import com.surge.GetYourWay.domain.dto.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class CustomerService {
+public class CustomerService implements UserDetailsService {
 
     @Autowired
     CustomerRepository customerRepository;
@@ -49,5 +53,12 @@ public class CustomerService {
         return cust.get();
     }
 
-
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Optional<Customer> cust = customerRepository.findByEmail(email);
+        if (cust == null){
+            throw new UsernameNotFoundException(email);
+        }
+        return new AuthCustomer(cust.get());
+    }
 }
