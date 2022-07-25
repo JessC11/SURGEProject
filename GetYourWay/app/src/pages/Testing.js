@@ -1,12 +1,15 @@
 import {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Trip from '../components/Trip'
+import { useSearchParams } from 'react-router-dom';
 
 const Testing = () => {
 
     const [trips, setTrips] = useState([]);
 
     useEffect(() => {
+        // Need to actually link this up so it shows the trips of this customer not always customer 1
+          let id = 1;
           const requestOptions = {
              method: 'GET',
              headers: {
@@ -15,12 +18,11 @@ const Testing = () => {
                 'Access-Control-Allow-Headers': '*'
               }
           };
-          let address = 'http://localhost:8080/trips/1';
+          let address = 'http://localhost:8080/trips/' + id;
           fetch(address , requestOptions)
           .then(response => response.json())
           .then(result=>{
               setTrips(result);
-              console.log(result[0])
           })
     }, [])
 
