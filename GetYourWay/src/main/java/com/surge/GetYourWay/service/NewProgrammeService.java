@@ -3,19 +3,16 @@ package com.surge.GetYourWay.service;
 import com.surge.GetYourWay.domain.dao.DestinationRepository;
 import com.surge.GetYourWay.domain.dao.ImageRepository;
 import com.surge.GetYourWay.domain.dao.ProgrammeRepository;
-import com.surge.GetYourWay.domain.dto.Destination;
-import com.surge.GetYourWay.domain.dto.Flight;
-import com.surge.GetYourWay.domain.dto.Image;
-import com.surge.GetYourWay.domain.dto.Programme;
+import com.surge.GetYourWay.domain.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class ProgrammeService {
-
+public class NewProgrammeService {
     @Autowired
     ProgrammeRepository programmeRepository;
 
@@ -25,8 +22,13 @@ public class ProgrammeService {
     @Autowired
     DestinationRepository destinationRepository;
 
-    public List<Programme> getAllProgrammes() {
-        List<Programme> programmes = programmeRepository.findAll();
-        return programmes;
+    public Programme createProgramme(NewProgramme newprogramme) {
+        Programme programme = new Programme();
+        Image img = new Image();
+        programme.setProgramme(newprogramme.getProgramme());
+        img.setImage(newprogramme.getImage());
+        imageRepository.save(img);
+        programme.setImage(img);
+        return programmeRepository.save(programme);
     }
 }

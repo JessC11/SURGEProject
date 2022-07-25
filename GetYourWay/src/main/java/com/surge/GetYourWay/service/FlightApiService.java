@@ -1,6 +1,5 @@
 package com.surge.GetYourWay.service;
 
-import com.surge.GetYourWay.domain.dto.Flight;
 import com.surge.GetYourWay.domain.dto.FlightInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -40,19 +39,6 @@ public class FlightApiService {
             f.setAirline(air.getString("name"));
             flights.add(f);
         }
-
-//        for (int i = 0; i < objArray.length(); i++) {
-//            FlightInfo f = new FlightInfo();
-//            JSONObject dep = objArray.getJSONObject(i).getJSONObject("departure");
-//            JSONObject arr = objArray.getJSONObject(i).getJSONObject("arrival");
-//            JSONObject air = objArray.getJSONObject(i).getJSONObject("airline");
-//            f.setDeparture(dep.getString("airport"));
-//            f.setDepartTime(dep.getString("time"));
-//            f.setArrival(arr.getString("airport"));
-//            f.setArrivalTime(arr.getString("time"));
-//            f.setAirline(air.getString("name"));
-//            flights.add(f);
-//        }
 
         return flights;
     }
