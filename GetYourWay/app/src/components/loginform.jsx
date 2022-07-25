@@ -4,20 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 import "../form.css";
 
-function LoginForm() {
+const LoginForm = () => {
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // User Login info
-  const database = [
-    {
-      email: "user1",
-      password: "pass1",
-    }
-  ];
-
+  const [email, setEmail] = useState('');
+  const [passwordHash, setPassword] = useState('');
+  
   const errors = {
-    loginError: "Invalid login details"
+    loginError: "Invalid login details",
+    userError: "No user exists. Please sign up."
   };
 
   const navigate = useNavigate();
@@ -25,24 +20,31 @@ function LoginForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    var { email, pass } = document.forms[0];
-
-    const userData = database.find((user) => user.email === email.value);
-
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "loginerror", message: errors.loginError });
-      } else {
-        setIsSubmitted(true);
-      }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "loginerror", message: errors.loginError });
+    const customerInput = {email, passwordHash}
+    let address = 'http://localhost:8080/login';
+    const request = {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*'
+      },
+        body: JSON.stringify(customerInput)
     }
+    fetch(address , request)
+    .then(response=>{
+        if(response.status === 302) {
+          setIsSubmitted(true)
+          console.log(response)
+          setTimeout(() =>navigate('/search'),3000);
+        } else if (response.status === 400){
+          setErrorMessages({ name: "loginerror", message: errors.loginError });
+        } else {
+          setErrorMessages({ name: "loginerror", message: errors.userError });
+        }
+    })
 
-    setTimeout(() =>navigate('/search'),3000);
-  };
+ };
 
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
@@ -54,11 +56,13 @@ function LoginForm() {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Email </label>
-          <input type="text" name="email" required placeholder="Enter email" />
+          <input type="text" name="email" required placeholder="Enter email" 
+          value={email} onChange={event=>setEmail(event.target.value)}/>
         </div>
         <div className="input-container">
           <label>Password </label>
-          <input type="password" name="pass" required placeholder="Password" />
+          <input type="password" name="pass" required placeholder="Password" 
+          value={passwordHash} onChange={event=>setPassword(event.target.value)}/>
         </div>
         <div className="button-container">
           <input type="submit" />
