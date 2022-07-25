@@ -19,8 +19,8 @@ public class TripController {
     TripService tripService;
 
     @GetMapping("/trips/{customerId}")
-    public List<TripViewModel> getAllTrips(@PathVariable int customerId){
-        return tripService.getAllTripsByCustomerId2(customerId);
+    public List<TripService.ListTripViewModel> getAllTrips(@PathVariable int customerId){
+        return tripService.getAllTripsByCustomerId(customerId);
     }
 
     @GetMapping("/trip/{tripId}")

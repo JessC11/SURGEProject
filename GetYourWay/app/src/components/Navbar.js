@@ -8,7 +8,7 @@ function Navibar() {
     <header>
         <Navbar className='nav' expand="lg" variant="light">
         <Container className='navbar' fluid>
-          <Navbar.Brand href="/"><img src={logo} class="img-fluid" id="nav-logo"/></Navbar.Brand>
+          <Navbar.Brand href="/"><img src={logo} className="img-fluid" id="nav-logo"/></Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Login</Nav.Link>
             <Nav.Link href="/search">My Search</Nav.Link>
