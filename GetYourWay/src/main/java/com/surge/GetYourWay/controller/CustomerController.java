@@ -1,17 +1,12 @@
 package com.surge.GetYourWay.controller;
-import com.surge.GetYourWay.domain.dto.AuthCustomer;
 import com.surge.GetYourWay.domain.dto.Customer;
 import com.surge.GetYourWay.service.CustomerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.util.Objects;
-import java.util.Optional;
 
 @RestController
 public class CustomerController {
@@ -36,8 +31,7 @@ public class CustomerController {
     @PostMapping("/login")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> loginCustomer(@RequestBody Customer customerInput) {
-        AuthCustomer output = (AuthCustomer) customerService.loadUserByUsername(customerInput.getEmail());
-        Customer customer = output.getCustomer();
+        Customer customer = (Customer) customerService.loadUserByUsername(customerInput.getEmail());
         if (customer != null) {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String passwordInDB = customer.getPasswordHash();
