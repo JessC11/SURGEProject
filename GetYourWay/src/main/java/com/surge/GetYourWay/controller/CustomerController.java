@@ -8,9 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.Objects;
-import java.util.Optional;
-
 @RestController
 public class CustomerController {
 
@@ -34,7 +31,7 @@ public class CustomerController {
     @PostMapping("/login")
     @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> loginCustomer(@RequestBody Customer customerInput) {
-        Customer customer = customerService.checkExists(customerInput);
+        Customer customer = (Customer) customerService.loadUserByUsername(customerInput.getEmail());
         if (customer != null) {
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String passwordInDB = customer.getPasswordHash();

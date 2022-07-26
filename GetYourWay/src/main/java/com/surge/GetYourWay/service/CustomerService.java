@@ -3,12 +3,15 @@ package com.surge.GetYourWay.service;
 import com.surge.GetYourWay.domain.dao.CustomerRepository;
 import com.surge.GetYourWay.domain.dto.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class CustomerService {
+public class CustomerService implements UserDetailsService {
 
     @Autowired
     CustomerRepository customerRepository;
@@ -33,6 +36,9 @@ public class CustomerService {
         if (customer.getPasswordHash() == null){
             customer.setPasswordHash("test password hash");
         };
+        if (customer.getRole() == null){
+            customer.setRole("USER");
+        };
         return customer;
     }
 
@@ -41,13 +47,20 @@ public class CustomerService {
     }
 
 
-    public Customer checkExists(Customer customerInput){
-        Optional<Customer> cust = customerRepository.findByEmail(customerInput.getEmail());
-        if (cust.isEmpty()) {
-            return null;
+//    public Customer checkExists(Customer customerInput){
+//        Optional<Customer> cust = customerRepository.findByEmail(customerInput.getEmail());
+//        if (cust.isEmpty()) {
+//            return null;
+//        }
+//        return cust.get();
+//    }
+
+    @Override
+    public Customer loadUserByUsername(String email) throws UsernameNotFoundException {
+        Optional<Customer> cust = customerRepository.findByEmail(email);
+        if (cust.isEmpty()){
+            throw new UsernameNotFoundException(email);
         }
         return cust.get();
     }
-
-
 }

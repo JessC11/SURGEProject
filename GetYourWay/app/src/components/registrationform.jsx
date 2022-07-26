@@ -10,6 +10,7 @@ const RegistrationForm = () => {
   const [passwordHash, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const role = "USER";
 
   const errors = {
     submitError: "Please fill out all fields",
@@ -19,7 +20,7 @@ const RegistrationForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newCustomer = {email, passwordHash, firstName, lastName }
+    const newCustomer = {email, passwordHash, firstName, lastName, role }
     console.log(newCustomer)
     let address = 'http://localhost:8080/registration';
     const request = {
